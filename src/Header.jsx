@@ -1,8 +1,29 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/hover.css';
+import './css/styles.css';
+import './css/variables.css';
+import Botao from './Botao';
+import './funcoes'; // Importe o arquivo com as funções
 
 function Header() {
+  // Função para manipular o clique do botão existente
+  const handleBotaoClick = () => {
+    // Verifica se já existe um valor armazenado no localStorage
+    let valorAtual = parseInt(localStorage.getItem('contador') || '0', 10);
+
+    // Incrementa o valor atual usando uma operação matemática (por exemplo, adicione 2)
+    valorAtual += 2;
+
+    // Armazena o novo valor no localStorage
+    localStorage.setItem('contador', valorAtual.toString());
+
+    // Exibe o valor no console
+    console.log(`Valor no console: ${valorAtual}`);
+  };
+
+
   return (
     <header className="container mt-4">
       {/* menu principal */}
@@ -14,7 +35,7 @@ function Header() {
             </figure>
           </a>
 
-          <button
+          <Button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -24,7 +45,8 @@ function Header() {
             aria-label="Toggle navigation"
           >
             <i className="bi bi-text-right"></i>
-          </button>
+          </Button>
+
           <div className="collapse navbar-collapse justify-content-center nav-link" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
@@ -58,7 +80,8 @@ function Header() {
           <div className="navbar" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Button className="btn btn-primary my-3 color-smartlight efeito-button">
+                <Button className="btn btn-primary my-3 color-smartlight efeito-button" id="botaoExistente"
+                  onClick={handleBotaoClick}>
                   Entrar em sua conta
                 </Button>
               </li>
