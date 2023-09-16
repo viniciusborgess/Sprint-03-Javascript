@@ -4,8 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/hover.css';
 import './css/styles.css';
 import './css/variables.css';
-import Botao from './Botao';
-import './funcoes'; // Importe o arquivo com as funções
 
 function Header() {
   // Função para manipular o clique do botão existente
@@ -13,14 +11,14 @@ function Header() {
     // Verifica se já existe um valor armazenado no localStorage
     let valorAtual = parseInt(localStorage.getItem('contador') || '0', 10);
 
-    // Incrementa o valor atual usando uma operação matemática (por exemplo, adicione 2)
+    // Incrementa o valor atual usando uma operação matemática
     valorAtual += 2;
 
     // Armazena o novo valor no localStorage
     localStorage.setItem('contador', valorAtual.toString());
 
     // Exibe o valor no console
-    console.log(`Valor no console: ${valorAtual}`);
+    console.log(`Cliques no botão do header multiplicado por 2: ${valorAtual}`);
   };
 
 
